@@ -1,0 +1,1020 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISHART MAHAMADSHARIF MULANI - Portfolio</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #1a1a2e;
+            --text-color: #e6e6e6;
+            --accent-color: #4cc9f0;
+        }
+
+        body {
+            background-color: var(--dark-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+        }
+
+        /* Navigation Bar */
+        #navbar {
+            background-color: rgba(26, 26, 46, 0.9);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light-color);
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--light-color);
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--light-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Hero Section */
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(26, 26, 46, 0.9), rgba(26, 26, 46, 0.9)), 
+                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-details {
+            margin-top: 20px;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+        }
+
+        .detail-item strong {
+            display: inline-block;
+            width: 100px;
+            color: var(--accent-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--light-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .skill-category {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 10px;
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+        }
+
+        .skill-category h3 {
+            margin-bottom: 15px;
+            color: var(--accent-color);
+            text-align: center;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        /* Certificates Section Styles */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-img {
+            height: 250px;
+            overflow: hidden;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.05);
+        }
+
+        .certificate-info {
+            padding: 20px;
+        }
+
+        .certificate-info h3 {
+            margin-bottom: 10px;
+            color: var(--light-color);
+            font-size: 1.2rem;
+        }
+
+        .certificate-date {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+
+        /* Social Work Section */
+        .social-work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .social-work-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .social-work-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-work-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .social-work-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .social-work-info {
+            padding: 20px;
+        }
+
+        .social-work-info h3 {
+            margin-bottom: 10px;
+            color: var(--light-color);
+        }
+
+        .social-work-info .date {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Creativity Section Image Adjustments */
+        .Schematic-diagram-img,
+        .Painting-img,
+        .Heena-img,
+        .Gardening-img,
+        .Rangoli-img,
+        .cooking-img {
+             width: 100%;
+             max-width: 400px; /* Adjust maximum width as needed */
+             margin: 0 auto 20px;
+             text-align: center;
+        }
+
+        .Schematic-diagram-img img,
+        .Painting-img img,
+        .Heena-img img,
+        .Gardening-img img,
+        .Rangoli-img img,
+        .cooking-img img {
+             width: 100%;
+             height: auto;
+             max-height: 300px; /* Adjust maximum height as needed */
+             object-fit: contain; /* Use 'contain' to show full image without cropping */
+             border-radius: 8px;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Image Gallery Styles */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+        
+        /* Family Section Image Adjustments */
+        .family-img {
+            width: 100%;
+            max-width: 500px; /* Adjust maximum width as needed */
+            margin: 0 auto 20px;
+            text-align: center;
+        }
+
+        .family-img img {
+            width: 100%;
+            height: auto;
+            max-height: 400px; /* Adjust maximum height as needed */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--light-color);
+        }
+
+        .contact-details {
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: var(--light-color);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: var(--light-color);
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu ul {
+                gap: 15px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">ISHART MULANI</div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#social-work">Social Work</a></li>
+                    <li><a href="#creativity">Creativity</a></li>
+                    <li><a href="#family">Family</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Hello, I'm ISHART MAHAMADSHARIF MULANI</h1>
+                    <p>FY B-Tech Student | ENTC | MIT Academy of Engineering</p>
+                    <a href="#projects" class="btn">Explore My Portfolio</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Me</h2>
+                </div>
+                <div class="about-content">
+                    <div class="about-img">
+                        <img src="915e7f9b-469e-4b75-b410-2bfa893734a4.jpg" alt="Ishart Mulani">
+                    </div>
+                    <div class="about-text">
+                        <p>I am ISHART MAHAMADSHARIF MULANI future electronic engineer, currently pursuing my Bachelor of Technology (B-Tech) in Electronics and Telecommunication Engineering (ENTC) at MIT Academy of Engineering (MIT AOE), Pune.</p>
+                        <p>As a first-year student, I am passionate about exploring the vast field of electronics and communication technology and also of software as I think one should have knowledge of everything basic to advance. One should know about hardware as well as software. My academic journey is complemented by my curiosity to learn new technologies and apply them to solve real-world problems.</p>
+                        <p>Beyond academics, I engage in various extracurricular activities including social work and creative pursuits that help me develop a well-rounded personality. Which teach me about what actually team work is. How to handle everything in life to be helpful to everyone without expecting anything in return.</p>
+                        
+                        <div class="about-details">
+                            <div class="detail-item">
+                                <strong>Name:</strong> ISHART MAHAMADSHARIF MULANI
+                            </div>
+                            <div class="detail-item">
+                                <strong>Education:</strong> <div>10 pass with first class</div>
+                                                            <div>12th pass with good grades</div> 
+                                                            <div>B-Tech (ENTC), MIT AOE, Pune</div>
+
+                            </div>
+                            <div class="detail-item">
+                                <strong>Email:</strong> ishart.mulani@gmail.com
+                            </div>
+                            <div class="detail-item">
+                                <strong>Location:</strong> Pune, Maharashtra, India
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Projects</h2>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="90f50c5b-3e61-45b9-b808-196d7780faf4.jpg" alt="Electronic Piano">
+                        </div>
+                        <div class="project-info">
+                            <h3>Electronic Piano</h3>
+                            <p>An Electronic Piano which work using IC-555 Timer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="8f73a5dc-269c-42be-9ca5-578b14e2704c.jpg" alt="Autonomous Car">
+                        </div>
+                        <div class="project-info">
+                            <h3>Autonomous Car</h3>
+                            <p>Len following Autonomous Car using ESP32 camera.Currently i am working on it.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="6de6a621-9eb1-45e2-a04f-a27e8cb47001.jpg" alt="Touch Sensor">
+                        </div>
+                        <div class="project-info">
+                            <h3>Touch Sensor</h3>
+                            <p>A Touch Sensor which detect the touch and buzzer gets activate, which helps for security purpose at home, hospital, college, etc.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="6c018d2a-fb8f-4f8c-a2e5-64d98e153e8a.jpg" alt="Smart Blind Stick">
+                        </div>
+                        <div class="project-info">
+                            <h3>Smart Blind Stick</h3>
+                            <p>A Smart Blind using Arduino UNO which detect the obstacle and provide alerts to the user. Which is useful for blind people to protect themselves from harmful things. Currently we are working on this project we are done with our testing on breadboard only implementing on stick is remaining.</p>
+                        </div>
+                    </div>
+
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-img">
+                                <img src="b6f05c4a-8295-423e-b3d0-a3f5115e49cc.jpg" alt="Website">
+                            </div>
+                            <div class="project-info">
+                                <h3>Seat reseving website in canteen</h3>
+                                <p>In our DT/Design Thinking subject we selected the canteen our domain and problem that we face is about seat and rush that we usually see so we created seat reserving website where you can reserve our seat.</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <div class="section-title">
+                    <h2>My Skills</h2>
+                </div>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Technical Skills</h3>
+                        <div class="skill-item">C Programming-80%</div>
+                        <div class="skill-item">Python-70%</div>
+                        <div class="skill-item">Basic Electronics-85%</div>
+                        <div class="skill-item">HTML/CSS-80%</div>
+                        <div class="skill-item">Stimulations-80%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+<section id="certificates">
+    <div class="container">
+        <div class="section-title">
+            <h2>Certificates</h2>
+        </div>
+        <div class="certificates-grid">
+            <!-- Certificate 1 -->
+            <div class="certificate-card">
+                <div class="certificate-img">
+                    <img src="2ba5a337-dea2-4f0e-a3b9-9799e472b47f.jpg" alt="CISCO Python Essential 1 Certificate">
+                </div>
+                <div class="certificate-info">
+                    <h3>CISCO Networking Academy - Python Essential 1</h3>
+            </div>
+
+            <!-- Certificate 2 -->
+            <div class="certificate-card">
+                <div class="certificate-img">
+                    <img src="0fb81213-884e-4180-995c-cf5d52777f2b.jpg" alt="CISCO Python Essential 2 Certificate">
+                </div>
+                <div class="certificate-info">
+                    <h3>CISCO Networking Academy - Python Essential 2</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <!-- Social Work Section -->
+        <section id="social-work">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Social Work</h2>
+                </div>
+                <div class="social-work-grid">
+                    <div class="social-work-card">
+                        <div class="social-work-img">
+                            <img src="dad018c9-dc24-46be-8a59-c7a43de6ff55.jpg" alt="Cleaning">
+                            <img src="ebd6b97d-86d4-4bf5-bfb9-3fb5d1839e5d.jpg" alt="Cleaning">
+                        </div>
+                        <div class="social-work-info">
+                            <h3>Cleaning</h3>
+                            <div class="date">2024</div>
+                            <p>Organized by NSS MITAOE during Alandi Yatra where we clean the roads and riverside areas during the yatra as everyone know the Alandi yatra is the biggest yatra where large number of people comes. Because of the rush and the people make mess everywhere so our college NSS team every year take part which also makes people work easy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-work-card">
+                        <div class="social-work-img">
+                            <img src="72f0e166-07eb-4bfc-aa94-ca01499a6733.jpg" alt="Distributing food">
+                        </div>
+                        <div class="social-work-info">
+                            <h3>Distributing food</h3>
+                            <div class="date">2024</div>
+                            <p>During Alandi yatra we distributed the bananas to people who were standing in line for darshan as they were fasting and standing from the morning. Social Work really make think about other peoples, about team work how to work in team, to be socialize and to make new friends.</p>
+                        </div>
+                    </div>
+
+                    <div class="social-work-card">
+                        <div class="social-work-img">
+                            <img src="d84f9a44-ffd0-4031-a00b-66cd98da8cad.jpg" alt="Distributing food">
+                        </div>
+                        <div class="social-work-info">
+                            <h3>Medical Camp</h3>
+                            <div class="date">2024</div>
+                            <p>During Alandi yatra we help the nurses and doctor by giving medicines and writing patient names.Also i get to learn about differenet medicines and there uses.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-work-card">
+                        <div class="social-work-img">
+                            <img src="tiffin packing.jpg" alt="Food packing">
+                        </div>
+                        <div class="social-work-info">
+                            <h3>Food packing</h3>
+                            <div class="date">2024</div>
+                            <p>During Alandi yatra we pack more than 150 tiffin in a day for the police, doctors, nurses and social workers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Creativity Section -->
+        <section id="creativity">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Creativity</h2>
+                </div>
+                <div class="creativity-grid">
+                    <div class="creativity-card-info">
+                        <div class="Schematic-diagram-img">
+                        </div>
+                    <div class="creativity-grid">
+                        <h3>Technical Sketching</h3>
+                        <p>Passionate about creating schematic drawing electronics projects.</p>
+                        <div class="image-gallery">
+                            <div class="gallery-item">
+                                <img src="68ee5cf6-da62-4d3b-bddb-709f26261b9d.jpg" alt="Schematic diagram 1">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="81455ddc-3da4-4a3a-83f1-f13eae3f1964.jpg" alt="Schematic diagram 2">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="creativity-card">
+                    <div class="creativity-grid">
+                        <h3>Painting</h3>
+                        <p>Enjoy drawing and painting which really make me calm. Which make your feel free from stress.</p>
+                        <div class="Painting-img">
+                            <img src="b558e6e9-d0ca-4650-accb-81375212dcf5.jpg" alt="Schematic diagram">
+                        </div>
+                    </div>
+
+                    <div class="creativity-card">
+                    <div class="creativity-grid">
+                        <h3>Heena Artist</h3>
+                        <p>As been a  Muslim we are obsessed with Heena/Mehndi.At every special ocassion it maybe EID or Marraig drawing heena/mehndi on hands is important.As i never take classes for it but my seeing my sister i became good heena artist.BY drawing heena on my mothers and sisters hands to drawing it on very special account on my dii's engagement.Also feel very good because drawing heena is not a simple thing.</p>
+                        <div class="Painting-img">
+                            <img src="901b2c8c-21d6-4efd-b098-a967b98bf3b5.jpg" alt="Schematic diagram">
+                        </div>
+                    </div>
+                    
+                    <div class="creativity-card">
+                    <div class="creativity-grid">
+                        <h3>Gardening</h3>
+                        <p>I love to plant tree, which often I do with my mom. We created small garden on our terrace which really feel peace to seat there and have morning tea and coffee.</p>
+                        <div class="Gardening-img">
+                            <img src="f4c08951-e8c0-4548-b753-92b500366909.jpg" alt="Garden picture">
+                        </div>    
+                    </div>
+
+                    <div class="creativity-card">
+                    <div class="creativity-grid">
+                        <h3>Rangoli</h3>
+                        <p>As being Indian Muslim we also celebrated the diwali and during that time i draw the rangoli not only infront of my house but also around our neighbours house.</p>
+                        <div class="Rangoli-img">
+                            <img src="140102fc-2bd8-4fd5-bd18-239740d9d74a.jpg" alt="Rangoli image">
+                        </div>
+                    </div>
+                    
+                    <div class="creativity-card">
+                    <div class="creativity-grid">
+                        <h3>Cooking</h3>
+                        <p>I love cooking for my love ones. Mostly I do cooking during Ramadan, by cooking different dishes. Which really make me happy.</p>
+                        <div class="cooking-img">
+                            <img src="7eb968a5-54dc-48ba-b6da-78a75478bbbb.jpg" alt="Sweet dish">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Family Section -->
+         <section id="family">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Family</h2>
+                </div>
+                <div class="family-content">
+                    <div class="family-img">
+                        <img src="314d42d3-3362-486d-b82a-c2f84d3fb3d3.jpg" alt="Mahamadsharif Mulani">
+                    </div>
+                    <div class="family-text">
+                        <p>My Father Mahamadsharif Mulani the person who always think about other always ready to help others even he know about them or not.The one who dont differentiate between girls and boys.Give first priority for studying.He is 54 and still passionate about studying persuing his MBA degree.The first man from our family who teach her daughter.</p>
+                    </div>
+                
+
+                    <div class="family-img">
+                        <img src="ba983fc5-69ee-45ec-bfed-1a7de4a0bbf7.jpg" alt="Arifa  Mulani">
+                    </div>
+                    <div class="family-text">
+                        <p>My Mother Arifa mulani.Who always teach us to be loyal.The one who teach us spiritual thing.Who give us all the freedom and teach us that girls should be independent financially and in all aspects.</p>
+                    </div>
+                
+                
+                    <div class="family-img">
+                        <img src="2a910cbe-d7b1-4931-8925-28d19927d374.jpg" alt="Grandparents">
+                    </div>
+                    <div class="family-text">
+                        <p>My grandpartents,my grandfather where the first person in there family who educated there daughter by working alone in the family of 11-12 members.By ignoring the people by bua the first teacher in our family and another one the first nurse.</p>
+                    </div>
+                
+                   
+                    <div class="family-img">
+                        <img src="735cc145-f5c6-464c-ab45-ea18f466fe0a.jpg" alt="Grandparents">
+                    </div>
+                    <div class="family-text">
+                        <p>My siblings my biggest support system and ispiration.Who alwways motivate me to do study and achieve something in life.My 1st elder sister is first Doctor and second elder sister is first Engineer in our family.Both of them are working along with there further study.My younger brother he is in 11th standard.</p
+                    </div>
+                
+            
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Me</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <span>ishart.mulani@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">📱</span>
+                                <span>+91 12345XXXXX</span>
+                            </div>
+                            <div class="contact-item">
+                                <span class="contact-icon">🏫</span>
+                                <span>MIT Academy of Engineering, Alandi, Pune, Maharashtra</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email</label>
+                                <input type="email" id="email" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Your Message</label>
+                                <textarea id="message" class="form-control" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                © 2023 ISHART MAHAMADSHARIF MULANI. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
